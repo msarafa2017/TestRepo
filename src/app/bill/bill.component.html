@@ -1,0 +1,112 @@
+
+<div class="main_content">
+  <div class="group">
+    <header class="d-flex justify-content-between align-items-center flexx">
+      <h4>الفواتير</h4>
+      <a [routerLink]="['/ClientLayout/Create']" class="btn theme_btn"><i class="fas fa-plus"></i>اضافة فاتورة جديدة</a>
+    </header>
+    <div class="content">
+      <div class="panel">
+        <div class="panel_head">
+          <h5 class="search">البحث في الفواتير</h5>
+        </div>
+        <form [formGroup]="frmBillSearch">
+          <div class="row panel_body no-gutters">
+            <div class="col col-md-4 col-sm-6 col-xs-12">
+              <label class="lbl">رقم الفاتورة</label>
+              <div class="input-group">
+                <input type="text" formControlName='billNumberSm' class="form-control main_input" autocomplete="off" />
+                <input type="text" name="txtHelper" id="txtHelper" style="display:none;width: 0px;height: 0px;position: absolute;">
+              </div>
+            </div>
+            <div class="col col-md-4 col-sm-6 col-xs-12">
+              <label class="lbl">العميل</label>
+              <div class="input-group">
+                <select formControlName='customerIdSm' class="form-control main_input">
+                  <option [ngValue]=null>-- عرض الكل --</option>
+                  <option *ngFor='let typeOption of customerLookup' [ngValue]="typeOption.value">{{typeOption.text}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col col-md-4 col-sm-6 col-xs-12">
+              <label class="lbl">التاريخ من</label>
+              <div class="input-group">
+                <input matInput [matDatepicker]="dateFromSm" formControlName='dateFromSm' class="form-control main_input" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="dateFromSm"></mat-datepicker-toggle>
+                <mat-datepicker #dateFromSm></mat-datepicker>
+              </div>
+            </div>
+            <div class="col col-md-4 col-sm-6 col-xs-12">
+              <label class="lbl">التاريخ الى</label>
+              <div class="input-group">
+                <input matInput [matDatepicker]="dateToSm" formControlName='dateToSm' class="form-control main_input" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="dateToSm"></mat-datepicker-toggle>
+                <mat-datepicker #dateToSm></mat-datepicker>
+              </div>
+            </div>
+            <div class="col col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <div class="group_btns full_width">
+                <button type="submit" class="btn theme_btn" (click)='search()'><i class="fas fa-search"></i>بحث</button>
+                <button type="submit" class="btn theme_btn all ml-2" (click)='getAllItems()'><i class="fas fa-eye"></i>عرض الكل</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="group">
+    <div class="content">
+      <div class="panel">
+        <div class="panel_head ">
+          <h5 class="list">
+            عدد الفواتير
+            <span class="list_number">{{itemsData.length}}</span>
+          </h5>
+          <div class="table-responsive">
+            <table class="table grid table-striped" *ngIf='itemsData.length > 0'>
+              <thead>
+              <th>#</th>
+              <th>رقم الفاتورة</th>
+              <th>العميل</th>
+              <th>اجمالي السعر</th>
+              <th>الخصم</th>
+              <th>عدد الأصناف</th>
+              <th></th>
+              </thead>
+              <tr *ngFor='let item of itemsData; let ind = index'>
+                <td>{{ind+1}}</td>
+                <td>{{item.billNumber}}</td>
+                <td>{{item.customerName}}</td>
+                <td>{{item.totalPrice}}</td>
+                <td>{{item.discount}}</td>
+                <td>{{item.itemCount}}</td>
+                <td>
+                  <a [routerLink]="['/ClientLayout/Update/',item.id]" class="btn theme_btn" *ngIf='item.isAdded==false'>
+                    تعديل
+                  </a>
+                  <a [routerLink]="['/ClientLayout/BillDetails/',item.id]" class="btn theme_btn ml-2" *ngIf='item.isAdded==true'>
+                    تفاصيل
+                  </a>
+                  <a href="javascript:;" class="btn theme_btn ml-2" (click)='deleteItem(item.id)' *ngIf='item.isAdded==false'>
+                    حذف
+                  </a>
+                  <a href="javascript:;" class="btn theme_btn ml-2" (click)="openDialog(item.id)" *ngIf='item.itemCount>0'>
+                    عرض الأصناف
+                  </a>
+                </td>
+              </tr>
+            </table>
+            <div class="col col-md-12 col-sm-12 col-xs-12" *ngIf='itemsData.length <= 0'>
+              <label class="control-label text-danger not_found">
+                <i class="fas fa-exclamation-circle mr-1"></i>
+                لا يوجد بيانات
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

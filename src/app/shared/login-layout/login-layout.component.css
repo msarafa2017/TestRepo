@@ -1,0 +1,267 @@
+/* start login */
+.login-wrapper .left-side-login .vision_lang .btn, .login-wrapper .left-side-login .admin-login form .log_btns input[type='button'] {
+    -webki-border-radius: 25px;
+    border-radius: 25px;
+    background-color: #1A8D4B;
+    border: 0;
+    color: #ffffff;
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
+    .login-wrapper .left-side-login .vision_lang .btn:focus, .login-wrapper .left-side-login .admin-login form .log_btns input:focus[type='button'] {
+        outline: 0;
+        box-shadow: none;
+    }
+
+.login-wrapper .left-side-login .admin-login form .input-group input {
+    -webki-border-radius: 25px;
+    border-radius: 25px;
+    border-color: #D2D2D2;
+    margin-bottom: 15px;
+    height: 45px;
+}
+
+    .login-wrapper .left-side-login .admin-login form .input-group input:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+
+.login-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    min-height: 100%;
+}
+
+    .login-wrapper .right-side-login {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+        padding: 50px 50px 30px;
+        background: #fff url(../../../assets/images/pttrnnn.png) no-repeat;
+        background-size: cover;
+        background-position: center center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+        .login-wrapper .right-side-login .copyrights {
+            color: #707070;
+            font-weight: bold;
+        }
+
+    .login-wrapper .left-side-login {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+        padding: 40px 20px 20px 50px;
+        background-color: #F0F7F4;
+        position: relative;
+        z-index: 9;
+        border-bottom-right-radius: 60px;
+    }
+
+        .login-wrapper .left-side-login::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background: #F0F7F4;
+            right: -40px;
+            top: 0;
+            -webkit-transform: skewX(-8deg);
+            transform: skewX(-8deg);
+            z-index: -1;
+            border-top-right-radius: 60px;
+            border-bottom-right-radius: 60px;
+        }
+
+        .login-wrapper .left-side-login::after {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 100%;
+            background: #E4F0EB;
+            right: -60px;
+            top: 0;
+            -webkit-transform: skew(-4deg, 0deg);
+            transform: skew(-4deg, 0deg);
+            z-index: -2;
+            border-top-right-radius: 60px;
+            border-bottom-right-radius: 60px;
+        }
+
+        .login-wrapper .left-side-login .vision_lang {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .login-wrapper .left-side-login .vision_lang .btn {
+                background-color: #B47800;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                padding: 5px 13px 5px 0px;
+            }
+
+                .login-wrapper .left-side-login .vision_lang .btn svg {
+                    margin: 0 5px;
+                    background: #fff;
+                    border-radius: 50%;
+                    padding: 3px;
+                }
+
+        .login-wrapper .left-side-login .admin-login form {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+            .login-wrapper .left-side-login .admin-login form .input-group input {
+                padding: 5px 40px 5px 5px;
+            }
+
+            .login-wrapper .left-side-login .admin-login form .input-group .input-group-prepend span {
+                position: absolute;
+                top: 13px;
+                right: 13px;
+                color: #707070;
+                z-index: 10;
+            }
+
+            .login-wrapper .left-side-login .admin-login form .log_btns {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+                .login-wrapper .left-side-login .admin-login form .log_btns input[type='button'] {
+                    font-size: 16px;
+                    position: relative;
+                    min-width: 100px;
+                }
+
+                    .login-wrapper .left-side-login .admin-login form .log_btns input[type='button']::after {
+                        content: '<';
+                        background: #53CB86;
+                        padding: 6px 12px;
+                        border-radius: 25px;
+                        border-bottom-right-radius: 0;
+                        margin-right: 5px;
+                    }
+
+                        .login-wrapper .left-side-login .admin-login form .log_btns input[type='button']::after i {
+                            vertical-align: middle;
+                        }
+
+                .login-wrapper .left-side-login .admin-login form .log_btns a {
+                    background-color: transparent;
+                    border: 2px solid #1A8D4B;
+                    color: #1A8D4B;
+                    font-weight: bold;
+                    padding: 3px 15px;
+                    border-radius: 25px;
+                    height: 45px;
+                    line-height: 37px;
+                    min-width: 100px;
+                }
+
+                    .login-wrapper .left-side-login .admin-login form .log_btns a img {
+                        width: 30px;
+                        margin-right: 5px;
+                    }
+
+                .login-wrapper .left-side-login .admin-login form .log_btns .btn-success {
+                    border-radius: 25px;
+                    height: 45px;
+                    min-width: 100px;
+                }
+
+        .login-wrapper .left-side-login .admin-login .down_links a {
+            color: #707070;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .login-wrapper .left-side-login .admin-login .down_links p a {
+            color: #B47800;
+        }
+
+        .login-wrapper .left-side-login .dual_input {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+            .login-wrapper .left-side-login .dual_input input:last-of-type {
+                margin-right: 10px;
+                width: 48% !important;
+            }
+
+            .login-wrapper .left-side-login .dual_input > div {
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+            }
+
+            .login-wrapper .left-side-login .dual_input .input-group-prepend {
+                position: relative;
+            }
+
+.validation-summary-errors {
+    width: 100%;
+    padding: 10px;
+    background: #ffdede;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px dashed #efaaaa;
+}
+
+    .validation-summary-errors ul {
+        list-style: none;
+        padding: 0;
+        text-align: right;
+        margin: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    .validation-summary-errors li::before {
+        content: '\f057';
+        font-family: "Font Awesome 5 Free";
+        margin: 0 0 0 5px;
+    }
+
+    .validation-summary-errors li {
+        color: #f00;
+    }
+
+    

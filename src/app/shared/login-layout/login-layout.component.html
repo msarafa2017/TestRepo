@@ -1,0 +1,31 @@
+<div class="login-wrapper">
+    <div class="right-side-login">
+        <div>
+            <img [routerLink]="['../']" src="./assets/images/logo.svg" class="MEWA_logo" alt="MEWA_logo">
+        </div>
+        <div class="client"><img src="./assets/images/logo_client.png" class="Logo" alt="Esclate_logo"></div>
+        <div class="copyrights d-sm-none d-md-block">
+            <p>
+                <span>الإدارة العامة لتقنية المعلومات</span> <br />
+                جميع الحقوق محفوظة لوزارة البيئة والمياه والزراعة
+            </p>
+        </div>
+    </div>
+    <div class="left-side-login">
+        <div class="vision_lang">
+            <img src="./assets/images/vision.png" class="d-sm-none d-none d-md-block" alt="vision2030">
+        </div>
+        <section class="admin-login text-center">
+            
+            <router-outlet></router-outlet>  
+
+            <div class="copyrights d-md-none d-sm-block">
+                <p>
+                    <span>الإدارة العامة لتقنية المعلومات</span> <br />
+                    جميع الحقوق محفوظة لوزارة البيئة والمياه والزراعة
+                </p>
+            </div>
+        </section>
+    </div>
+</div>
+

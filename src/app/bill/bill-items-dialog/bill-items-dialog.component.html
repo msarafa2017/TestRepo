@@ -1,0 +1,24 @@
+
+<h2 mat-dialog-title>الأصناف المضافة للفاتورة</h2>
+<mat-dialog-content class="mat-typography">
+    <table class="table grid table-striped" *ngIf='itemDetails.length > 0'>
+        <thead>
+            <th>م</th>
+            <th>الصنف</th>
+            <th>الكمية</th>
+            <th>اجمالي السعر</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemDetails; let ind = index">
+                <td>{{ind+1}}</td>
+                <td>{{item.itemName}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.totalPrice}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>اغلاق</button>
+</mat-dialog-actions>

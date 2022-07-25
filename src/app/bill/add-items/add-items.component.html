@@ -1,0 +1,120 @@
+<div class="">
+    <div class="row d-flex justify-content-center no_margin">
+        <div class="col-md-12">
+            <div class="wizard">
+                <div class="wizard-inner">
+                    <app-bill-wizard [tap]="ActiveWizard" [id]="id"></app-bill-wizard>
+                </div>
+
+                <div class="progress mb-3">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1"
+                        aria-valuemin="1" aria-valuemax="3" style="width: 66.66%;"></div>
+                </div>
+                <div class="main_content">
+                    <div class="group">
+                        <header>
+                            <h4>أصناف الفاتورة</h4>
+                        </header>
+                        <div class="content">
+                            <div class="panel">
+                                <div class="panel_head">
+                                    <h5>اضافة أصناف الفاتورة</h5>
+                                </div>
+                                <div class="row panel_body no-gutters">
+                                    <input type="hidden" [(ngModel)]="viewModel.billMainId" />
+                                    <div class="col col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                        <label class="control-label long_lbl">الصنف</label><span
+                                            class="req_feild">*</span>
+                                        <div class="input-group">
+                                            <select [(ngModel)]='viewModel.itemId' (change)='changeItem()'
+                                                class="form-control main_input"
+                                                [ngClass]="{'input-validation-error': viewModel.itemId === 0 }">
+                                                <option value='0'>-- اختر الصنف --</option>
+                                                <option *ngFor='let itemOption of itemLookup' [value]="itemOption.value"
+                                                    [selected]="itemOption.value == viewModel.itemId">
+                                                    {{itemOption.text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                        <label class="control-label long_lbl">الكمية</label><span
+                                            class="req_feild">*</span>
+                                        <div class="input-group">
+                                            <input [(ngModel)]='viewModel.amount' (change)='changeItem()' type="text"
+                                                class="form-control main_input"
+                                                [ngClass]="{'input-validation-error': viewModel.amount === 0 }"
+                                                autocomplete="off" maxlength="10" />
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                        <label class="control-label long_lbl">الاجمالي</label><span
+                                            class="req_feild">*</span>
+                                        <div class="input-group">
+                                            <input [(ngModel)]='viewModel.totalPrice' type="text"
+                                                class="form-control main_input"
+                                                [ngClass]="{'input-validation-error': viewModel.totalPrice === 0 }"
+                                                readonly autocomplete="off" maxlength="10" />
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-2 col-sm-6 col-xs-12">
+                                        <div class="group_btns full_width">
+                                            <button class="btn theme_btn" (click)='addItem()'>اضافة الصنف</button>
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-12 col-sm-12 col-xs-12">
+                                        <br>
+                                    </div>
+                                    <div class="panel_head table-responsive">
+                                        <h5>
+                                            الأصناف المضافة
+                                            <span class="list_number">{{billItems.length}}</span>
+                                        </h5>
+                                        <table class="table grid table-striped" *ngIf="billItems.length > 0">
+                                            <thead>
+                                                <tr>
+                                                    <th>م</th>
+                                                    <th>الصنف</th>
+                                                    <th>الكمية</th>
+                                                    <th>اجمالي السعر</th>
+                                                    <th style="text-align: center;width: 8%;"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of billItems; let ind = index">
+                                                    <td>{{ind+1}}</td>
+                                                    <td>{{item.itemName}}</td>
+                                                    <td>{{item.amount}}</td>
+                                                    <td>{{item.totalPrice}}</td>
+                                                    <td style="text-align: center;" class="py-2 align-middle white-space-nowrap d-flex">
+                                                        <a href="javascript:;" class="btn theme_btn" (click)='deleteItem(item.id)'>
+                                                            حذف
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="col col-md-12 col-sm-12 col-xs-12" *ngIf="billItems.length == 0">
+                                            <label class="control-label text-danger not_found">
+                                                <i class="fas fa-exclamation-circle mr-1"></i>
+                                                لا يوجد أصناف مضافة
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col col-md-12 col-sm-12 col-xs-12">
+                                        <div class="float-right">
+                                            <button class="btn theme_btn" (click)='updatebill(1)'>التالي</button>
+                                            <a class="btn theme_btn cancel back ml-2" [routerLink]="['/ClientLayout/Update/', id]">السابق</a>
+                                            <button class="btn theme_btn all ml-2" (click)='updatebill(2)'>رجوع وحفظ
+                                                كمسودة</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

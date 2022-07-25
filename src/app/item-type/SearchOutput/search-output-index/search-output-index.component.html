@@ -1,0 +1,58 @@
+<div class="main_content">
+  <div class="group">
+    <header class="d-flex justify-content-between align-items-center flexx">
+      <h4>أنواع الأصناف</h4>
+      <a class="btn theme_btn float-right" [routerLink]="['/AdminLayout/CreateItemType']"><i class="fas fa-plus"></i>اضافة نوع صنف جديد</a>
+    </header>
+
+    <app-search-output-search (searchEvent)="onSearch($event)"></app-search-output-search>
+
+  </div>
+  <div class="group">
+    <div class="content" id="SearchResult">
+      <div class="panel" id="SearchTableContainer">
+        <div class="panel_head ">
+          <h5 class="list">
+            عدد انواع الأصناف
+            <span class="list_number">{{itemTypes.responseData.length}}</span>
+          </h5>
+          <div class="table-responsive">
+            <table class="table grid table-striped" id="SearchTable" *ngIf='itemTypes.responseData.length > 0'>
+              <thead>
+              <th>#</th>
+              <th>الاسم عربي</th>
+              <th>الاسم انجليزي</th>
+              <th>الفعالية</th>
+              <th></th>
+              </thead>
+              <tr *ngFor='let item of itemTypes.responseData; let ind = index'>
+                <td>{{ind+1}}</td>
+                <td>{{item.nameAr}}</td>
+                <td>{{item.nameEn}}</td>
+                <td>{{item.isActiveName}}</td>
+                <td>
+                  <a [routerLink]="['/AdminLayout/ItemTypeDetails/',item.id]" class="btn theme_btn">
+                    تفاصيل
+                  </a>
+                  <a [routerLink]="['/AdminLayout/UpdateItemType/',item.id]" class="btn theme_btn ml-2">
+                    تعديل
+                  </a>
+                  <a href="javascript:;" class="btn theme_btn ml-2" (click)='deleteItem(item.id)'>
+                    حذف
+                  </a>
+                </td>
+              </tr>
+            </table>
+            <div class="col col-md-12 col-sm-12 col-xs-12" *ngIf='itemTypes.responseData.length <= 0'>
+              <label class="control-label text-danger not_found">
+                <i class="fas fa-exclamation-circle mr-1"></i>
+                لا يوجد بيانات
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

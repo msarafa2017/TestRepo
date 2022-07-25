@@ -1,0 +1,59 @@
+<div class="main_content">
+    <div class="group">
+        <header>
+            <h4>تعديل الأصناف</h4>
+        </header>
+        <div class="content">
+            <div class="panel" *ngIf='viewModel.id != 0'>
+                <div class="panel_head">
+                    <h5>تعديل الصنف  : {{viewModel.nameAr}}</h5>
+                </div>
+                <div class="row panel_body no-gutters">
+                    <input type="hidden" [(ngModel)]="viewModel.id" />
+                    <input type="hidden" [(ngModel)]="viewModel.rowVersion" />
+                    <div class="col col-md-4 col-sm-6 col-xs-12">
+                        <label class="control-label">الاسم عربي</label><span class="req_feild">*</span>
+                        <div class="input-group">
+                            <input type="text" [(ngModel)]="viewModel.nameAr" required id="nameAr" name="nameAr" class="form-control main_input" [ngClass]="{'input-validation-error': viewModel.nameAr === '' }" autocomplete="off" maxlength="50" />
+                        </div>
+                    </div>
+                    <div class="col col-md-4 col-sm-6 col-xs-12">
+                        <label class="control-label">الاسم انجليزي</label><span class="req_feild">*</span>
+                        <div class="input-group">
+                            <input type="text" [(ngModel)]="viewModel.nameEn" required id="nameEn" name="nameEn" class="form-control main_input" [ngClass]="{'input-validation-error': viewModel.nameEn === '' }" autocomplete="off" maxlength="50" />
+                        </div>
+                    </div>
+                    <div class="col col-md-4 col-sm-6 col-xs-12">
+                        <label class="lbl">نوع الصنف</label>
+                        <div class="input-group">
+                            <select [(ngModel)]='viewModel.itemTypeId' class="form-control main_input" [ngClass]="{'input-validation-error': viewModel.itemTypeId === 0 }" >
+                                <option value='0'>-- اختر نوع الصنف --</option>
+                                <option *ngFor='let typeOption of itemTypeLookup' [value]="typeOption.value" [selected]="typeOption.value == viewModel.itemTypeId" >{{typeOption.text}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col col-md-4 col-sm-6 col-xs-12">
+                        <label class="control-label">فعال</label><span class="req_feild">*</span>
+                        <div class="input-group">
+                            <select class="form-control main_input" [(ngModel)]='viewModel.isActive'>
+                                <option *ngFor='let option of activeLookup' [value]="option.value" [selected]="option.value == viewModel.isActive">{{option.text}}</option>
+                            </select>
+                            <span asp-validation-for="IsActive" class="text-danger help-block"></span>
+                        </div>
+                    </div>
+                    <div class="col col-md-12 col-sm-12 col-xs-12">
+                        <div class="float-right">
+                            <button class="btn theme_btn" (click)='updateItem()'>حفظ</button>
+                            <button class="btn theme_btn info" (click)='clear()'>الغاء</button>
+                            <a class="btn theme_btn back" [routerLink]="['/AdminLayout/Item']"> رجوع </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel" *ngIf='viewModel.id == 0'>
+                <item-not-exsit [Redirect]="'Item'"></item-not-exsit>
+            </div>
+        </div>
+    </div>
+</div>
+

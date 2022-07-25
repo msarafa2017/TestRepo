@@ -1,0 +1,76 @@
+<div class="main_content">
+    <div class="group">
+        <header>
+            <h4>تعديل العميل</h4>
+        </header>
+        <div class="content">
+            <div class="panel" *ngIf='viewModel.id != 0'>
+                <div class="panel_head">
+                    <h5>تعديل العميل  : {{viewModel.nameAr}}</h5>
+                </div>
+                <form [formGroup]="frmUpdateCustomer" (ngSubmit)="updateItem()">
+                  <div class="row panel_body no-gutters">
+                    <input type="hidden" formControlName="id" />
+                    <input type="hidden" formControlName="rowVersion" />
+                    <div class="col col-md-4 col-sm-6 col-xs-12">
+                      <label class="control-label">الاسم عربي</label><span class="req_feild">*</span>
+                      <div class="input-group">
+                        <input type="text" formControlName="nameAr" class="form-control main_input" [class.input-validation-error]="!frmUpdateCustomer.get('nameAr')?.valid && frmUpdateCustomer.get('nameAr')?.touched" autocomplete="off" maxlength="50" />
+                      </div>
+                      <span class="text-danger help-block" *ngIf="frmUpdateCustomer.get('nameAr')?.hasError('required') && frmUpdateCustomer.get('nameAr')?.touched">ادخل الأسم عربي</span>
+                    </div>
+                    <div class="col col-md-4 col-sm-6 col-xs-12">
+                      <label class="control-label">الاسم انجليزي</label><span class="req_feild">*</span>
+                      <div class="input-group">
+                        <input type="text" formControlName="nameEn" name="nameEn" class="form-control main_input" [class.input-validation-error]="!frmUpdateCustomer.get('nameEn')?.valid && frmUpdateCustomer.get('nameEn')?.touched" autocomplete="off" maxlength="50" />
+                      </div>
+                      <span class="text-danger help-block" *ngIf="frmUpdateCustomer.get('nameEn')?.hasError('required') && frmUpdateCustomer.get('nameEn')?.touched">ادخل الأسم انجليزي</span>
+                    </div>
+                    <div class="col col-md-4 col-sm-6 col-xs-12">
+                      <label class="control-label">الجوال</label><span class="req_feild">*</span>
+                      <div class="input-group">
+                        <input type="text" formControlName="mobile" class="form-control main_input" [class.input-validation-error]="!frmUpdateCustomer.get('mobile')?.valid && frmUpdateCustomer.get('mobile')?.touched" autocomplete="off" maxlength="15" />
+                      </div>
+                      <span class="text-danger help-block" *ngIf="frmUpdateCustomer.get('mobile')?.hasError('required') && frmUpdateCustomer.get('mobile')?.touched">ادخل رقم الجوال</span>
+                    </div>
+                    <div class="col col-md-4 col-sm-6 col-xs-12">
+                      <label class="control-label">البريد الالكتروني</label><span class="req_feild">*</span>
+                      <div class="input-group">
+                        <input type="text" formControlName="email" class="form-control main_input" [class.input-validation-error]="!frmUpdateCustomer.get('email')?.valid && frmUpdateCustomer.get('email')?.touched" autocomplete="off" maxlength="50" />
+                      </div>
+                      <span class="text-danger help-block" *ngIf="frmUpdateCustomer.get('email')?.hasError('required') && frmUpdateCustomer.get('email')?.touched">ادخل البريد الالكتروني</span>
+                    </div>
+                    <div class="col col-md-4 col-sm-6 col-xs-12">
+                      <label class="control-label">فعال</label><span class="req_feild">*</span>
+                      <div class="input-group">
+                        <select class="form-control main_input" [class.input-validation-error]="!frmUpdateCustomer.get('isActive')?.valid && frmUpdateCustomer.get('isActive')?.touched" formControlName="isActive">
+                          <option [ngValue]="null" selected> -- اختر الفعالية -- </option>
+                          <option *ngFor='let option of activeLookup' [ngValue]="option.value">{{option.text}}</option>
+                        </select>
+                        <span asp-validation-for="IsActive" class="text-danger help-block"></span>
+                      </div>
+                      <span class="text-danger help-block" *ngIf="frmUpdateCustomer.get('isActive')?.hasError('required') && frmUpdateCustomer.get('isActive')?.touched">اختر الفعالية</span>
+                    </div>
+                    <div class="col col-md-12 col-sm-12 col-xs-12">
+                      <label class="control-label">العنوان</label>
+                      <div class="input-group">
+                        <textarea type="text" rows="9" formControlName="address" class="form-control main_input" autocomplete="off" maxlength="1500"></textarea>
+                      </div>
+                    </div>
+                    <div class="col col-md-12 col-sm-12 col-xs-12">
+                      <div class="float-right">
+                        <input type="submit" class="btn theme_btn" (click)='updateItem()' value="حفظ" />
+                        <input type="button" class="btn theme_btn info ml-2" (click)='resetForm()' value="الغاء" />
+                        <a class="btn theme_btn back ml-2" [routerLink]="['/AdminLayout/Customer']"> رجوع </a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="panel" *ngIf='viewModel.id == 0'>
+                <item-not-exsit [Redirect]="'Customer'"></item-not-exsit>
+            </div>
+        </div>
+    </div>
+</div>
+

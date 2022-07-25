@@ -1,0 +1,81 @@
+<div class="main_content">
+  <div class="group">
+    <header>
+      <h4>Content Projection </h4>
+    </header>
+    <div class="content">
+      <div class="panel">
+        <div class="panel_head">
+          <h5>Single-slot content projection</h5>
+        </div>
+        <app-single-slot>
+          <div class="row panel_body no-gutters">
+            <div class="col col-md-4 col-sm-6 col-xs-12">
+              <label class="control-label">الاسم عربي</label><span class="req_feild">*</span>
+              <div class="input-group">
+                <input type="text" class="form-control main_input" autocomplete="off" maxlength="50" />
+              </div>
+            </div>
+            <div class="col col-md-4 col-sm-6 col-xs-12">
+              <label class="control-label">الاسم انجليزي</label><span class="req_feild">*</span>
+              <div class="input-group">
+                <input type="text" class="form-control main_input" autocomplete="off" maxlength="50" />
+              </div>
+            </div>
+            <div class="col col-md-4 col-sm-6 col-xs-12">
+              <label class="lbl">نوع الصنف</label>
+              <div class="input-group">
+                <select class="form-control main_input">
+                  <option value='0'>-- عرض الكل --</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </app-single-slot>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel_head">
+        <h5>Multi-slot content projection</h5>
+      </div>
+      <app-multi-slot>
+        <div class="row panel_body no-gutters">
+          <div class="col col-md-4 col-sm-6 col-xs-12">
+            <label class="control-label">الاسم الأول</label><span class="req_feild">*</span>
+            <div class="input-group">
+              <input type="text" class="form-control main_input" autocomplete="off" maxlength="50" />
+            </div>
+          </div>
+        </div>
+        <div class="row panel_body no-gutters" third>
+          <div class="col col-md-4 col-sm-6 col-xs-12">
+            <label class="control-label">الاسم الثالث</label><span class="req_feild">*</span>
+            <div class="input-group">
+              <input type="text" class="form-control main_input" autocomplete="off" maxlength="50" />
+            </div>
+          </div>
+        </div>
+        <div class="row panel_body no-gutters" second>
+          <div class="col col-md-4 col-sm-6 col-xs-12">
+            <label class="control-label">الاسم الثاني</label><span class="req_feild">*</span>
+            <div class="input-group">
+              <input type="text" class="form-control main_input" autocomplete="off" maxlength="50" />
+            </div>
+          </div>
+        </div>
+        < ng-content > element receives any other content projected into the component.
+      </app-multi-slot>
+    </div>
+    <div class="panel">
+      <div class="panel_head">
+        <h5>Conditional content projection </h5>
+      </div>
+      <div class="row panel_body no-gutters">
+        <app-conditional>
+          Ars
+        </app-conditional>
+      </div>
+    </div>
+  </div>
+</div>
+

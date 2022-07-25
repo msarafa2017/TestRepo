@@ -1,0 +1,103 @@
+<div class="row d-flex justify-content-center no_margin">
+    <div class="col-md-12">
+        <div class="wizard">
+            <div class="wizard-inner">
+                <app-bill-wizard [tap]="ActiveWizard" [id]="id"></app-bill-wizard>
+            </div>
+
+            <div class="progress mb-3">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="1"
+                    aria-valuemax="3" style="width: 100%;"></div>
+            </div>
+            <div class="main_content">
+                <div class="group">
+                    <header>
+                        <h4>حفظ بيانات الفاتورة</h4>
+                    </header>
+                    <div class="content">
+                        <div class="panel">
+                            <div class="panel_head">
+                                <h5>تفاصيل الفاتورة</h5>
+                            </div>
+                            <div class="row panel_body no-gutters">
+                                <div class="col col-md-6 col-sm-6 col-xs-12">
+                                    <div class="detial_info">
+                                        <label class="control-label">رقم الفاتورة</label>
+                                        <label>{{itemDetails.billNumber}}</label>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-xs-12">
+                                    <div class="detial_info">
+                                        <label class="control-label">اسم العميل</label>
+                                        <label>{{itemDetails.customerName}}</label>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-xs-12">
+                                    <label class="control-label long_lbl">الخصم</label>
+                                    <div class="input-group">
+                                        <input [(ngModel)]='itemDetails.discount' type="text" (input)="changeDiscount()"
+                                            class="form-control main_input" autocomplete="off" maxlength="10" />
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-xs-12">
+                                    <label class="control-label long_lbl">اجمالي الفاتورة</label>
+                                    <div class="input-group">
+                                        <input [(ngModel)]='itemDetails.totalPrice' type="text"
+                                            class="form-control main_input" readonly autocomplete="off"
+                                            maxlength="10" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="content">
+                        <div class="panel">
+                            <div class="panel_head">
+                                <h5 class="list">
+                                    الأصناف المضافة على الفاتورة
+                                    <span class="list_number">{{itemDetails.items.length}}</span>
+                                </h5>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table grid table-striped" *ngIf='itemDetails.items.length > 0'>
+                                    <thead>
+                                        <tr>
+                                            <th>م</th>
+                                            <th>الصنف</th>
+                                            <th>الكمية</th>
+                                            <th>اجمالي السعر</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of itemDetails.items; let ind = index">
+                                            <td>{{ind+1}}</td>
+                                            <td>{{item.itemName}}</td>
+                                            <td>{{item.amount}}</td>
+                                            <td>{{item.totalPrice}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col col-md-12 col-sm-12 col-xs-12" *ngIf='itemDetails.items.length <= 0'>
+                                    <label class="control-label text-danger not_found">
+                                        <i class="fas fa-exclamation-circle mr-1"></i>
+                                        لا يوجد بيانات
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-12 col-sm-12 col-xs-12">
+                        <div class="float-right">
+                            <button class="btn theme_btn" (click)='save(1)'>حفظ</button>
+                            <a class="btn theme_btn cancel back ml-2"
+                                [routerLink]="['/ClientLayout/AddItems/', id]">السابق</a>
+                            <button class="btn theme_btn all ml-2" (click)='save(2)'>رجوع وحفظ كمسودة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

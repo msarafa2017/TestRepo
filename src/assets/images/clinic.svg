@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.727" height="28.058" viewBox="0 0 25.727 28.058">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  <g id="clinic" transform="translate(-6.4 -2.5)">
+    <path id="Path_1434" data-name="Path 1434" class="cls-1" d="M24.026,22.552h7.582a.826.826,0,0,0,0-1.652H24.026a.826.826,0,1,0,0,1.652Z" transform="translate(-11.843 -12.971)"/>
+    <path id="Path_1435" data-name="Path 1435" class="cls-1" d="M24.026,38.052h7.582a.825.825,0,0,0,.826-.826.844.844,0,0,0-.826-.826H24.026a.826.826,0,1,0,0,1.652Z" transform="translate(-11.843 -23.898)"/>
+    <path id="Path_1436" data-name="Path 1436" class="cls-1" d="M27.744,52H24.026a.825.825,0,0,0-.826.826.844.844,0,0,0,.826.826h3.717a.826.826,0,0,0,0-1.652Z" transform="translate(-11.843 -34.896)"/>
+    <path id="Path_1437" data-name="Path 1437" class="cls-1" d="M25.548,15.747V5.657A3.16,3.16,0,0,0,22.391,2.5H9.557A3.16,3.16,0,0,0,6.4,5.657V21.028a3.16,3.16,0,0,0,3.157,3.157H17.4a7.4,7.4,0,1,0,8.143-8.438ZM8.082,21.028V5.657A1.479,1.479,0,0,1,9.557,4.182H22.421A1.479,1.479,0,0,1,23.9,5.657v10.12a7.422,7.422,0,0,0-6.55,6.756H9.557A1.525,1.525,0,0,1,8.082,21.028Zm16.64,7.848a5.753,5.753,0,1,1,5.753-5.753A5.761,5.761,0,0,1,24.722,28.876Z" transform="translate(0)"/>
+    <line id="Line_6" data-name="Line 6" class="cls-2" x2="6" transform="translate(22.019 23.479)"/>
+    <line id="Line_7" data-name="Line 7" class="cls-2" x2="6" transform="translate(25.019 20.479) rotate(90)"/>
+  </g>
+</svg>

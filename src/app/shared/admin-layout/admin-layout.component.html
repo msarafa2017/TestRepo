@@ -1,0 +1,55 @@
+
+<div class="main_wrapper">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-sm-3 left_menu">
+                <aside>
+                        <header class="profile_card">
+                            <div class="pro_media">
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" id="profile_link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img class="mr-2 rounded-circle" src="./assets/images/useradmin.svg" alt="Generic placeholder image">
+                                        <span>مرحبا بك في نظام الفواتير</span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right border-0 d-md-none" aria-labelledby="profile_link">
+                                        <a class="dropdown-item text-danger" href="#">
+                                            <i class="fas fa-sign-out-alt text-danger"></i>
+                                            تسجيل خروج
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="icon_out" href="#" title="تسجيل الخروج">
+                                <i class="fas fa-power-off"></i>
+                            </a>
+                        </header>
+                        <app-menu></app-menu>
+                    <footer class="text-center copyrights">
+                        <h6>الإدارة العامة لتقنية المعلومات</h6>
+                        <h6>جميع الحقوق محفوظة - وزارة البيئة و المياه والزراعة</h6>
+                    </footer>
+                </aside>
+            </div>
+            <div class="col-sm ml-3">
+                <header class="d-md-block header">
+                    <img class="menu_collapse" src="./assets/images/menu.png" alt="menu">
+                    <div class="container-fluid">
+                        <div class="nmc_header">
+                            <div class="mewa">
+                                <img [routerLink]="['../']" src="./assets/images/logo.svg" class="img-fluid logo" alt="Logo">
+                            </div>
+                            <div class="nmc">
+                                <img src="./assets/images/logo_client_h.png" class="img-fluid esclate-logo" alt="Complaints">
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <main class="main mt-3">
+                    
+                    <router-outlet></router-outlet>  
+  
+                </main>
+            </div>
+        </div>
+    </div>
+  </div>

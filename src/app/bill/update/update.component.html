@@ -1,0 +1,57 @@
+<div class="">
+  <div class="row d-flex justify-content-center no_margin">
+    <div class="col-md-12">
+      <div class="wizard">
+        <div class="wizard-inner">
+          <app-bill-wizard [tap]='ActiveWizard' [id]="id"></app-bill-wizard>
+        </div>
+        <div class="progress mb-3">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 33.33%;"></div>
+        </div>
+        <div class="main_content">
+          <div class="group">
+            <header>
+              <h4>بيانات الفاتورة</h4>
+            </header>
+            <div class="content">
+              <div class="panel">
+                <div class="panel_head">
+                  <h5>تعديل بيانات الفاتورة</h5>
+                </div>
+                <form [formGroup]="frmUpdateBill">
+                  <div class="row panel_body no-gutters">
+                    <input type="hidden" formControlName="id" />
+                    <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <label class="control-label long_lbl">رقم الفاتورة</label><span class="req_feild">*</span>
+                      <div class="input-group">
+                        <input type="text" formControlName="billNumber" required class="form-control main_input" [class.input-validation-error]="!frmUpdateBill.get('billNumber')?.valid && frmUpdateBill.get('billNumber')?.touched" autocomplete="off" maxlength="10" />
+                      </div>
+                      <span class="text-danger help-block" *ngIf="frmUpdateBill.get('billNumber')?.hasError('required') && frmUpdateBill.get('billNumber')?.touched">ادخل رقم الفاتورة</span>
+                    </div>
+                    <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <label class="control-label long_lbl">العميل</label><span class="req_feild">*</span>
+                      <div class="input-group">
+                        <select formControlName="customerId" class="form-control main_input" [class.input-validation-error]="!frmUpdateBill.get('customerId')?.valid && frmUpdateBill.get('customerId')?.touched">
+                          <option [ngValue]='null'>-- اختر العميل --</option>
+                          <option *ngFor='let option of customerLookup' [ngValue]="option.value" [selected]="option.value == frmUpdateBill.get('customerId')?.value">{{option.text}}</option>
+                        </select>
+                      </div>
+                      <span class="text-danger help-block" *ngIf="frmUpdateBill.get('customerId')?.hasError('required') && frmUpdateBill.get('customerId')?.touched">اختر العميل</span>
+                    </div>
+                    <div class="col col-md-12 col-sm-12 col-xs-12">
+                      <div class="float-right">
+                        <input type="submit" class="btn theme_btn" (click)='updateItem(1)' value="التالي" />
+                        <a class="btn theme_btn cancel back ml-2" [routerLink]="['/ClientLayout/Bill']">رجوع</a>
+                        <input type="submit" class="btn theme_btn all ml-2" (click)='updateItem(2)' value="رجوع وحفظ كمسودة" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

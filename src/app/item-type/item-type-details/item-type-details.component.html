@@ -1,0 +1,43 @@
+<div class="main_content">
+    <div class="group">
+        <header>
+            <h4>تفاصيل نوع الصنف</h4>
+        </header>
+        <div class="content">
+            <div class="panel" *ngIf='itemDetails.id != 0'>
+                <div class="panel_head">
+                    <h5>تفاصيل نوع الصنف  : {{itemDetails.nameAr}}</h5>
+                </div>
+                    <div class="row panel_body no-gutters">
+                        <div class="col col-md-6 col-sm-6 col-xs-12">
+                            <div class="detial_info">
+                                <label class="control-label">الاسم عربي</label>
+                                <label>{{itemDetails.nameAr}}</label>
+                            </div>
+                        </div>
+                        <div class="col col-md-6 col-sm-6 col-xs-12">
+                            <div class="detial_info">
+                                <label class="lbl">الاسم انجليزي</label>
+                                <label>{{itemDetails.nameEn}}</label>
+                            </div>
+                        </div>
+                        <div class="col col-md-6 col-sm-6 col-xs-12">
+                            <div class="detial_info">
+                                <label class="lbl">فعال</label>
+                                <label>{{itemDetails.isActiveName}}</label>
+                            </div>
+                        </div>
+                        <div class="col col-md-12 col-sm-12 col-xs-12">
+                            <div class="float-right my-2">
+                                <a [routerLink]="['/AdminLayout/UpdateItemType/',itemDetails.id]" class="btn theme_btn info">تعديل</a>
+                                <a [routerLink]="['/AdminLayout/ItemType']" class="btn theme_btn cancel"> رجوع </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="panel" *ngIf='itemDetails.id == 0'>
+                <item-not-exsit [Redirect]="'ItemType'"></item-not-exsit>
+            </div>
+        </div>
+    </div>
+</div>

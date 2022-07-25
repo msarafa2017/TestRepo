@@ -1,0 +1,28 @@
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class=""><i class="fas fa-user"></i></span>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="viewMode.userName" inputmode="numeric" maxlength="10" placeholder="رقم الهوية" autocomplete="off" />
+        <span asp-validation-for="UserName" class="text-danger help-block"></span>
+        <span class="validation-msg" id="UserNamePallon" style="display:none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            من فضلك أدخل أرقام فقط
+        </span>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class=""><i class="fas fa-lock"></i></span>
+        </div>
+        <input class="form-control" type="password" [(ngModel)]="viewMode.password" maxlength="50" placeholder="كلمة المرور" autocomplete="new-password" />
+        <span asp-validation-for="Password" class="text-danger help-block"></span>
+    </div>
+    <div class="log_btns">
+        <input type="button" class="btn btn-success" (click)="onLogin()" value="تسجيل الدخول" />
+        <a class="btn btn-success ml-2" [routerLink]="['/LoginLayout/Register']" >تسجيل مستخدم جديد</a>
+    </div>
+    <div class="down_links mt-3">
+        <a asp-controller="Account" asp-action="ForgetPassword">هل نسيت كلمة المرور ؟</a>
+        <img class="log_caution" src="./assets/images/caution.png" alt="">
+        <img src="./assets/images/vision.png" alt="vision2030" class="d-md-none d-sm-inline">
+    </div>

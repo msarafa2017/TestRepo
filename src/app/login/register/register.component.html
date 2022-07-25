@@ -1,0 +1,41 @@
+
+<!--<form #RegisterForm="ngForm" ngNativeValidate (ngSubmit)="register()">-->
+<form #RegisterForm="ngForm" (ngSubmit)="register()">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    </div>
+    <input type="text" name="userName" [(ngModel)]="viewModel.userName" #userName="ngModel" class="form-control" required maxlength="10" placeholder="اسم المستخدم" autocomplete="off" autofocus />
+    <span class="text-danger help-block" *ngIf="userName.invalid && userName.touched">
+      برجاء ادخال اسم المستخدم
+    </span>
+  </div>
+  <div ngModelGroup="passwordGroup" appConfirmEqual #passwordGroup="ngModelGroup">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      </div>
+      <input type="password" name="password" class="form-control" [(ngModel)]="viewModel.password" required #password="ngModel" maxlength="10" placeholder="كلمة المرور" autocomplete="off" />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      </div>
+      <input type="password" name="confirmPassword" class="form-control" [(ngModel)]="viewModel.confirmPassword" #confirmPassword="ngModel" required maxlength="10" placeholder="تأكيد كلمة المرور" autocomplete="off" />
+      <span class="text-danger help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.['required']">
+        برجاء ادخال تأكيد كلمة المرور
+      </span>
+      <span class="text-danger help-block" *ngIf="passwordGroup.errors?.['notEqual'] && !confirmPassword.errors?.['required']">
+        كلمة المرور غير متطابقة
+      </span>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    </div>
+    <input type="text" name="mobile" class="form-control" [(ngModel)]="viewModel.mobile" inputmode="numeric" maxlength="10" placeholder="رقم الجوال" autocomplete="off" />
+  </div>
+  <div class="log_btns">
+    <input type="submit" class="btn btn-success" value="تسجيل" />
+    <a class="btn btn-camcel ml-2" [routerLink]="['/LoginLayout/Login']">رجوع</a>
+  </div>
+</form>
+
+<!--{{RegisterForm.value | json}}-->

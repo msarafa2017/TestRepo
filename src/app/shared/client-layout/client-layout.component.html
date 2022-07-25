@@ -1,0 +1,59 @@
+<div class="main_wrapper">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-sm">
+                <header class="header mb-3">
+                    <div class="header_wrapper">
+                        <div class="mewa__logo">
+                            <img [routerLink]="['../']" src="./assets/images/logo.svg" class="w-75 logo" alt="Logo">
+                        </div>
+                        <div class="client__logo">
+                            <div class="dropdown">
+                                <div class="media_list">
+                                    <img src="./assets/images/SaudiAvatar.png" alt="" />
+                                    <a href="javascript:;" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span>هنا يظهر الاسم</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="row no-gutters new_layout_right">
+                    <div class="left_menu">
+                        <aside>
+                            <div class="nav__links">
+                                <ul class="m-0 p-0 list-unstyled">
+                                    <!-- <li routerLinkActive="active"> -->
+                                    <li [ngClass]="{'active': ActiveMenue == 1}">
+                                        <a [routerLink]="['/ClientLayout/Create']">
+                                            <img src="./assets/images/add_request1.svg" />
+                                            <span>إضافة طلب </span>
+                                        </a>
+                                    </li>
+                                    <li [ngClass]="{'active': ActiveMenue == 2}">
+                                        <a [routerLink]="['/ClientLayout/Bill']">
+                                            <img src="./assets/images/my_requests1.svg" />
+                                            <span>طلباتي</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                    <main class="main">
+
+                        <router-outlet></router-outlet>  
+
+                        <footer class="text-center copyrights">
+                            <h6>الإدارة العامة لتقنية المعلومات</h6>
+                            <h6>جميع الحقوق محفوظة - وزارة البيئة و المياه والزراعة </h6>
+                        </footer>
+                    </main>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
